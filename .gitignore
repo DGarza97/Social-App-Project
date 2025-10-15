@@ -1,0 +1,43 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environronment/
+environment/
+
+# Ignore environment variable files
+.env
+*.env
+
+# Ignore SQLite database
+*.sqlite3
+
+# Ignore Django migration files (optional)
+*/migrations/*.py 
+!*/migrations/__init__.py
+
+# Ignore media and static files (if stored locally)
+media/
+staticfiles/
+
+# Ignore VSCode and other editor settings
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore test or log files
+*.log
+
+# Ignore coverage and test output
+htmlcov/
+.coverage
+.tox/
+.nox/
+coverage.xml
+
+# Ignore node modules (if using npm for frontend)
+node_modules/
