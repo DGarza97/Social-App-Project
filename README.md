@@ -10,3 +10,13 @@ This app is a social life app that is an app for said people and is also geared 
 This app follows the CRUD convention in the following ways:
 
 ### C (Create)
+Users can create an account and use that account to either further create posts that contain project ideas or ongoing project information. These posts can give an overall picture of the project and tell other users what they may need to know to work on the project.
+
+### R (Read)
+Users can read through a feed of posts that tell of different projects that they can participate or express interest in. These posts can be filtered through based on interests or requirements for the user. 
+
+### U (Update)
+If enough developers for a project are found, the creator of the project or project idea can then update the post as necessary. Updates can also be done if things change throughout the project such as number of people needed or skills necessary.
+
+### D (Delete)
+Once a project is finished or if enough people have been gathered for a project, users can easily and swiftly delete a post that is no longer needed. This will prevent others from accidentally joining a team where all spots are filled.
