@@ -20,3 +20,24 @@ If enough developers for a project are found, the creator of the project or proj
 
 ### D (Delete)
 Once a project is finished or if enough people have been gathered for a project, users can easily and swiftly delete a post that is no longer needed. This will prevent others from accidentally joining a team where all spots are filled.
+
+---
+
+## Agile Planning
+
+This project uses Agile planning to help manage development in small, flexible steps instead of trying to build everything at once. Agile is useful for making sure the project stays on track, can adapt to changes, and stays focused on what users need.
+
+### How Agile is Used in This Project:
+
+- **User Stories**: Features are described as short stories from the user's point of view to make sure development stays focused on real needs.
+
+- **Sprints**: Work is divided into small time periods (like 1–2 weeks), where a few tasks or features are completed and reviewed.
+
+- **Task Prioritization**: Features and bugs are listed and sorted by importance so the most valuable parts get built first.
+
+- **Feedback and Adjustments**: After each sprint or round of development, feedback is used to improve the app.
+
+- **Collaboration**: Tasks are discussed, and decisions are made together to keep everyone aligned and productive.
+
+### Example User Story
+As a user looking for a project, I want to search or filter project posts so I can quickly find ones that match my interests and skills.
