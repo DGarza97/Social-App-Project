@@ -14,7 +14,7 @@ environment/
 *.sqlite3
 
 # Ignore Django migration files (optional)
-*/migrations/*.py 
+*/migrations/*.py
 !*/migrations/__init__.py
 
 # Ignore media and static files (if stored locally)
@@ -41,3 +41,6 @@ coverage.xml
 
 # Ignore node modules (if using npm for frontend)
 node_modules/
+
+# ignore db
+db.sqlite3
