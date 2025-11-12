@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Feed | Social App</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #f7f8fa;
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .sidebar,
+        .profile-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+
+        .feed {
+            flex-grow: 1;
+            margin: 0 30px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .quick-add {
+            background: #4737d6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #243046;
+            font-weight: 600;
+        }
+
+        .profile-box a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="avatar"></div>
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">My Projects</a>
+        <a href="#">Group Manager</a>
+        <a href="#">Joined Groups</a>
+    </div>
+
+    <div class="feed">
+        <h2>Feed</h2>
+        <button class="quick-add">+ Quick Add Your Own Post</button>
+
+        <div class="post">
+            <h3>Post Title</h3>
+            <p>Example post content</p>
+        </div>
+        <div class="post">
+            <h3>Post Title</h3>
+            <p>Example post content</p>
+        </div>
+        <div class="post">
+            <h3>Post Title</h3>
+            <p>Example post content</p>
+        </div>
+    </div>
+
+    <div class="profile-box">
+        <div class="avatar"></div>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Sign Out</a>
+    </div>
+</body>
+
+</html>
