@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
+from feed import views as feed_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('login.urls')),
     path('feed/', include('feed.urls')),
     path('', lambda request: redirect('login')),
+    path('myprojects/', feed_views.myprojects, name='myprojects'),
 ]

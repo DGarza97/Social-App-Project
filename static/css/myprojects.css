@@ -1,0 +1,206 @@
+/* ---------- GLOBAL ---------- */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #f7f8fa;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ---------- LEFT SIDEBAR ---------- */
+.sidebar {
+    background: white;
+    width: 220px;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+
+    margin-top: 40px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 14px 0;
+    text-decoration: none;
+    font-size: 15px;
+    color: #1f2b3d;
+    font-weight: 600;
+}
+
+/* ---------- FEED COLUMN ---------- */
+.feed {
+    flex: 1;
+    max-width: 950px;
+
+    margin-top: 40px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.feed h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+/* ---------- QUICK ADD BUTTON ---------- */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* push button to the right */
+}
+
+.new-project {
+    background: #4737d6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto !important; /* force width to fit content */
+}
+
+
+
+/* ---------- POST CARD ---------- */
+.post {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.post h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1b1f28;
+}
+
+.post p {
+    margin: 0;
+    color: #444;
+    font-size: 15px;
+}
+
+/* ---------- Custom Scrollbar ---------- */
+.feed::-webkit-scrollbar {
+    width: 10px;
+}
+
+.feed::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.feed::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 10px;
+}
+
+.feed::-webkit-scrollbar-thumb:hover {
+    background: #a9a9a9;
+}
+
+/* ---------- PROFILE DROPDOWN ---------- */
+.profile-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 100;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 52px;
+    margin-top: 0;
+
+    background: white;
+    width: 180px;
+    padding: 15px;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
+    z-index: 200;
+}
+
+.profile-dropdown.show {
+    display: block;
+}
+
+.profile-dropdown a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+}
+
+/* ---------- NEW POST BOX ---------- */
+.new-post-box {
+    display: none;
+    background: white;
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.new-post-box.show {
+    display: block;
+}
+
+.new-post-box textarea {
+    width: 100%;
+    resize: none;
+    height: 80px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.new-post-box textarea:focus {
+    border-color: #4737d6;
+}
+
+.submit-post {
+    background: #4737d6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-post:hover {
+    background: #3729a0;
+}

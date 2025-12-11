@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Feed | Social App</title>
+    <title>My Projects | Social App</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'feed/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/myprojects.css' %}">
 </head>
 
 <body>
@@ -27,41 +27,28 @@
     </div>
 
     <div class="feed">
-        <h2>Feed</h2>
+        <h2>My Projects</h2>
 
     <!--Quick Add-->
-        <button class="quick-add" id="quickAddBtn">+ Quick Add Your Own Post</button>
+        <div class="button-container">
+            <button class="new-project">Add Project</button>
+        </div>
 
         <!-- New post box (hidden by default) -->
         <div class="new-post-box" id="newPostBox">
-            <textarea placeholder="What's your next idea?" id="newPostText"></textarea>
+            <textarea placeholder="MyProjects TEST" id="newPostText"></textarea>
             <button class="submit-post" id="submitPostBtn">Post</button>
         </div>
 
         <!-- Example posts -->
         <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
+            <h3>Project Title</h3>
+            <p>Project Description</p>
         </div>
 
         <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
+            <h3>Project Title</h3>
+            <p>Project Description</p>
         </div>
 
     </div>
