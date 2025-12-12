@@ -1,0 +1,14 @@
+{% extends "feed/feed.html" %}
+
+{% block title %}Profile | Social App{% endblock %}
+
+{% block content %}
+<div class="feed">
+    
+    <p>Username: {{ request.user.username }}</p>
+    <p>Email: {{ request.user.email }}</p>
+</div>
+{% endblock %}
+
+
+{% block extra_js %}{% endblock %}

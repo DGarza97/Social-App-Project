@@ -25,10 +25,23 @@ SECRET_KEY = 'django-insecure-e4@-b8z4mmxrjsjw)yv!a+4vg#ol+c4&4+rto1t^9u=wxzo-ha
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
+if DEBUG:
+    ALLOWED_HOSTS = [
+        "localhost",
+        "127.0.0.1",
+        ".github.dev",
+        ".app.github.dev",
+    ]
 
+    CSRF_TRUSTED_ORIGINS = [
+        "https://localhost:8000",
+        "https://*.github.dev",
+        "https://*.app.github.dev",
+    ]
 
+LOGOUT_REDIRECT_URL = "/login/"
 
 
 # Application definition
@@ -44,6 +57,7 @@ INSTALLED_APPS = [
     'feed',
     'myprojects',
     'signup', 
+    'profile',
 ]
 
 MIDDLEWARE = [
