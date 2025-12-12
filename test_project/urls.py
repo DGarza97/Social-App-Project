@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('login.urls')),
     path('feed/', include('feed.urls')),
+    path('signup/', include ('signup.urls')),
     path('', lambda request: redirect('login')),
     path('myprojects/', feed_views.myprojects, name='myprojects'),
 ]
