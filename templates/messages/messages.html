@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages | Social App</title>
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+</head>
+
+<body>
+
+<!-- PROFILE DROPDOWN -->
+<div class="profile-wrapper">
+    <img src="https://via.placeholder.com/50" alt="Profile" class="profile-icon" id="profileToggle">
+    <div class="profile-dropdown" id="profileDropdown">
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="#">Settings</a>
+        <form method="post" action="{% url 'logout' %}" class="logout-form">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Sign Out</button>
+        </form>
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="{% url 'feed' %}">Home</a>
+    <a href="#">Explore</a>
+    <a href="{% url 'myprojects' %}">My Projects</a>
+    <a href="#">Group Manager</a>
+    <a href="{% url 'messages' %}" class="active">Messages</a>
+</div>
+
+<!-- MESSAGES LAYOUT -->
+<div class="messages-page">
+
+    <!-- CONVERSATIONS -->
+    <div class="conversations">
+        <h2>Messages</h2>
+
+        {% for conversation in conversations %}
+            <a
+              href="{% url 'messages' conversation.id %}"
+              class="conversation {% if conversation.id == active_conversation.id %}active{% endif %}"
+            >
+                <strong>{{ conversation.other_user.username }}</strong>
+                <p class="preview">
+                    {{ conversation.last_message|default:"No messages yet" }}
+                </p>
+            </a>
+        {% empty %}
+            <p class="empty-state">No conversations yet.</p>
+        {% endfor %}
+    </div>
+
+    <!-- CHAT -->
+    <div class="chat">
+
+        {% if active_conversation %}
+            <div class="chat-header">
+                <h3>{{ active_conversation.other_user.username }}</h3>
+            </div>
+
+            <div class="chat-messages">
+                {% for message in messages %}
+                    <div class="message {% if message.sender == request.user %}me{% else %}them{% endif %}">
+                        {{ message.content }}
+                    </div>
+                {% empty %}
+                    <p class="empty-state">No messages yet.</p>
+                {% endfor %}
+            </div>
+
+            <form method="post" class="chat-input">
+                {% csrf_token %}
+                <textarea
+                    name="content"
+                    placeholder="Type a message…"
+                    required
+                ></textarea>
+                <button type="submit">Send</button>
+            </form>
+
+        {% else %}
+            <div class="chat-empty">
+                <p>Select a conversation to start messaging.</p>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<!-- PROFILE JS -->
+<script>
+const profileToggle = document.getElementById("profileToggle");
+const profileDropdown = document.getElementById("profileDropdown");
+
+profileToggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    profileDropdown.classList.toggle("show");
+});
+
+document.addEventListener("click", function () {
+    profileDropdown.classList.remove("show");
+});
+</script>
+
+</body>
+</html>

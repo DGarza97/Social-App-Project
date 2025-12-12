@@ -27,6 +27,7 @@ urlpatterns = [
     path('feed/', include('feed.urls')),
     path('signup/', include ('signup.urls')),
     path("profile/", include("profiles.urls")),
+    path('messages/', include('messages.urls')),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 
     path('', lambda request: redirect('login')),

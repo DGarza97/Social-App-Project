@@ -26,6 +26,8 @@
         <a href="{% url 'myprojects' %}">My Projects</a>
         <a href="#">Group Manager</a>
         <a href="#">Joined Groups</a>
+        <a href="{% url 'messages' %}">Messages</a>
+
     </div>
 
     {% block content %}
@@ -85,7 +87,7 @@
             });
         }
 
-       
+
     </script>
 
     {% block extra_js %}
