@@ -1,14 +1,72 @@
 {% extends "feed/feed.html" %}
+{% load static %}
 
-{% block title %}Profile | Social App{% endblock %}
+{% block title %}My Profile | Social App{% endblock %}
 
-{% block content %}
-<div class="feed">
-    
-    <p>Username: {{ request.user.username }}</p>
-    <p>Email: {{ request.user.email }}</p>
-</div>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
+{% block content %}
+<div class="profile-page">
+
+  <div class="profile-card">
+    <div class="profile-header">
+     <div class="avatar-wrap">
+        <svg
+            viewBox="0 0 120 120"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Profile avatar"
+            role="img"
+        >
+        <circle cx="60" cy="60" r="60" fill="#E5E7EB"/>
+        <circle cx="60" cy="45" r="22" fill="#9CA3AF"/>
+        <path
+            d="M30 105c0-18 14-32 30-32s30 14 30 32"
+            fill="#9CA3AF"
+        />
+        </svg>
+    </div>
+      <div class="profile-header-text">
+        <h2 class="profile-name">{{ request.user.username }}</h2>
+        <p class="profile-handle">@{{ request.user.username }}</p>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <p class="profile-bio">
+      <!-- Placeholder bio  -->
+      Computer Science student building cool stuff. Interested in web dev, UX, and shipping projects.
+    </p>
+
+    <!-- Info rows -->
+    <div class="profile-info">
+      <div class="info-row">
+        <span class="info-label">Email</span>
+        <span class="info-value">{{ request.user.email }}</span>
+      </div>
+
+      <div class="info-row">
+        <span class="info-label">Joined</span>
+        <span class="info-value">{{ request.user.date_joined|date:"M d, Y" }}</span>
+      </div>
+
+      <div class="info-row">
+        <span class="info-label">Status</span>
+        <span class="info-value">
+          {% if request.user.is_staff %}Admin{% else %}Member{% endif %}
+        </span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="profile-actions">
+      <button class="btn btn-primary" type="button">Edit Profile</button>
+      <a class="btn btn-secondary" href="{% url 'myprojects' %}">My Projects</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
 
 {% block extra_js %}{% endblock %}
