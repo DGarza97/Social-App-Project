@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Feed | Social App{% endblock %}</title>
+    <title>{% block title %}Feed | Social App{% endblock %}</title> 
     <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+    {% block extra_css %}{% endblock %}
+
 </head>
 
 <body>
     <div class="profile-wrapper">
-        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-icon" id="profileToggle">
+        <img src="https://via.placeholder.com/120" alt="Profile" class="profile-icon" id="profileToggle">
         <div class="profile-dropdown" id="profileDropdown">
             <a href="{% url 'profile' %}">Profile</a>
             <a href="#">Settings</a>
