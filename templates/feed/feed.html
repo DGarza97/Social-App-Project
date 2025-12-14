@@ -42,12 +42,7 @@
             <form method="post">
                 {% csrf_token %}
 
-                <textarea
-                    name="content"
-                    placeholder="What's your next idea?"
-                    id="newPostText"
-                    required>
-                </textarea>
+                <textarea name="content" placeholder="What's your next idea?" id="newPostText" required></textarea>
 
                 <button type="submit" class="submit-post" id="submitPostBtn">
                     Post
