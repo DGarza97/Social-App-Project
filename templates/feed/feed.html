@@ -34,35 +34,31 @@
 
         <!-- New post box (hidden by default) -->
         <div class="new-post-box" id="newPostBox">
-            <textarea placeholder="What's your next idea?" id="newPostText"></textarea>
-            <button class="submit-post" id="submitPostBtn">Post</button>
+            <form method="post">
+                {% csrf_token %}
+
+                <textarea
+                    name="content"
+                    placeholder="What's your next idea?"
+                    id="newPostText"
+                    required>
+                </textarea>
+
+                <button type="submit" class="submit-post" id="submitPostBtn">
+                    Post
+                </button>
+            </form>
         </div>
 
-        <!-- Example posts -->
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
 
+        {% for post in posts %}
         <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
+            <h3>{{ post.author.username }}</h3>
+            <p>{{ post.content }}</p>
         </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Example post content</p>
-        </div>
+        {% empty %}
+        <p>No posts yet.</p>
+        {% endfor %}
 
     </div>
 
