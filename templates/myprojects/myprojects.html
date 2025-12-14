@@ -12,9 +12,12 @@
     <div class="profile-wrapper">
         <img src="https://via.placeholder.com/50" alt="Profile" class="profile-icon" id="profileToggle">
         <div class="profile-dropdown" id="profileDropdown">
-            <a href="#">Profile</a>
+            <a href="{% url 'profile' %}">Profile</a>
             <a href="#">Settings</a>
-            <a href="#">Sign Out</a>
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Sign Out</button>
+            </form>
         </div>
     </div>
 
@@ -24,7 +27,10 @@
         <a href="#">My Projects</a>
         <a href="#">Group Manager</a>
         <a href="#">Joined Groups</a>
+        <a href="{% url 'messages' %}">Messages</a>
+
     </div>
+
 
     <div class="feed">
         <h2>My Projects</h2>

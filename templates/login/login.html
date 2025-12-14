@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Login | Social App</title>
@@ -10,14 +9,14 @@
 
 <body>
     <header class="top-bar">
-        <h1>A World of Projects One Scroll Away</h1>
+        <h1>{% block header_title %}A World of Projects One Scroll Away{% endblock %}</h1>
     </header>
 
     <main>
         <div class="login-box">
+            {% block box_content %}
             <h2>Login</h2>
 
-            <!-- 👇 Place the error message right here -->
             {% if error %}
             <p style="color: red; font-weight: 600;">{{ error }}</p>
             {% endif %}
@@ -35,10 +34,10 @@
             </form>
 
             <p class="register-text">
-                Don’t have an account? <a href="#" class="create-account">Create Account</a>
+                Don’t have an account? <a href="{% url 'signup'%}" class="create-account">Create Account</a>
             </p>
+            {% endblock %}
         </div>
     </main>
 </body>
-
 </html>
