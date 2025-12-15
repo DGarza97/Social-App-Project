@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import PostForm
 from .models import Post
 
+@login_required
 def feed_page(request):
     if request.method == "POST":
         content = request.POST.get("content")
@@ -10,7 +11,7 @@ def feed_page(request):
         if content:
             Post.objects.create(
                 author=request.user,
-                content=content
+                content=request.POST['content']
             )
 
     posts = Post.objects.order_by("-created_at")
@@ -19,5 +20,4 @@ def feed_page(request):
         "posts": posts
     })
 
-def myprojects(request):
-    return render(request, 'myprojects/myprojects.html')
+

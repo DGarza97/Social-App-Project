@@ -1,7 +1,6 @@
 from django.urls import path
-from . import views
+from .views import my_projects
 
 urlpatterns = [
-    path('', views.feed_page, name='feed'),
-    path('myprojects/', views.myprojects, name='myprojects')
+    path('', my_projects, name='my_projects'),
 ]
