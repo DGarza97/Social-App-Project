@@ -11,7 +11,12 @@
 
 <!-- PROFILE DROPDOWN -->
 <div class="profile-wrapper">
-    <img src="https://via.placeholder.com/50" alt="Profile" class="profile-icon" id="profileToggle">
+    <img
+        class="profile-icon"
+        src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=111827&color=ffffff"
+        alt="Profile picture"
+        id="profileToggle"
+    />
     <div class="profile-dropdown" id="profileDropdown">
         <a href="{% url 'profile' %}">Profile</a>
         <a href="#">Settings</a>

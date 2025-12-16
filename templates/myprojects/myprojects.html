@@ -10,7 +10,12 @@
 
 <body>
     <div class="profile-wrapper">
-        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-icon" id="profileToggle">
+        <img
+            class="profile-icon"
+            src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=111827&color=ffffff"
+            alt="Profile picture"
+            id="profileToggle"
+            />
         <div class="profile-dropdown" id="profileDropdown">
             <a href="{% url 'profile' %}">Profile</a>
             <a href="#">Settings</a>
@@ -22,9 +27,9 @@
     </div>
 
     <div class="sidebar">
-        <a href="#">Home</a>
+        <a href="{% url 'feed' %}">Home</a>
         <a href="#">Explore</a>
-        <a href="#">My Projects</a>
+        <a href="{% url 'my_projects' %}">My Projects</a>
         <a href="#">Group Manager</a>
         <a href="#">Joined Groups</a>
         <a href="{% url 'messages' %}">Messages</a>
