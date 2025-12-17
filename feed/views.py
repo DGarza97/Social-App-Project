@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
 from .models import Post
@@ -19,5 +19,30 @@ def feed_page(request):
     return render(request, "feed/feed.html", {
         "posts": posts
     })
+
+@login_required
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk, author=request.user)
+
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('feed') 
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'posts/editpost.html', {'form': form})
+
+@login_required
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk, author=request.user)
+
+    if request.method == "POST":
+        post.delete()
+        return redirect('home')
+
+    return render(request, 'posts/deletepost.html', {'post': post})
+
 
 
