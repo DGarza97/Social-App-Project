@@ -57,8 +57,9 @@ INSTALLED_APPS = [
     'login',
     'feed',
     'myprojects',
-    'signup', 
+    'signup',
     'profile',
+    'chat',
 ]
 
 MIDDLEWARE = [
