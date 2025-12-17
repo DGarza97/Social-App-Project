@@ -32,12 +32,11 @@
         <p class="profile-handle">@{{ request.user.username }}</p>
       </div>
     </div>
-
-    <!-- Bio -->
+    <!--Bio-->
     <p class="profile-bio">
-      <!-- Placeholder bio  -->
-      Computer Science student building cool stuff. Interested in web dev, UX, and shipping projects.
+      {{ profile.bio|default:"No bio yet." }}
     </p>
+
 
     <!-- Info rows -->
     <div class="profile-info">
@@ -61,7 +60,7 @@
 
     <!-- Actions -->
     <div class="profile-actions">
-      <button class="btn btn-primary" type="button">Edit Profile</button>
+      <a class="btn btn-primary" href="{% url 'edit_profile' %}">Edit Profile</a>
       <a class="btn btn-secondary" href="{% url 'my_projects' %}">My Projects</a>
     </div>
   </div>

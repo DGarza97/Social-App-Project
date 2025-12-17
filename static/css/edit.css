@@ -1,0 +1,74 @@
+.profile-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-card form p {
+  margin: 0;
+}
+
+.profile-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.profile-card textarea,
+.profile-card input[type="text"],
+.profile-card input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d3d6;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+}
+
+.profile-card textarea {
+  min-height: 120px;
+}
+
+.profile-card textarea:focus,
+.profile-card input:focus {
+  border-color: #4737d6;
+  box-shadow: 0 0 0 3px rgba(71, 55, 214, 0.12);
+}
+
+.profile-card ul.errorlist {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+}
+
+.profile-card ul.errorlist li {
+  color: #991b1b;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary{
+    background:#4737d6;
+     color: #ffffff;
+     display: inline-block;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.button-secondary{
+    text-decoration: none;
+    color:black;
+}
