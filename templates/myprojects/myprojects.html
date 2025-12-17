@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>My Projects | Social App</title>
@@ -9,13 +8,15 @@
 </head>
 
 <body>
+
+    <!-- Profile -->
     <div class="profile-wrapper">
         <img
             class="profile-icon"
             src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=111827&color=ffffff"
             alt="Profile picture"
             id="profileToggle"
-            />
+        />
         <div class="profile-dropdown" id="profileDropdown">
             <a href="{% url 'profile' %}">Profile</a>
             <a href="#">Settings</a>
@@ -26,6 +27,7 @@
         </div>
     </div>
 
+    <!-- Sidebar -->
     <div class="sidebar">
         <a href="{% url 'feed' %}">Home</a>
         <a href="#">Explore</a>
@@ -33,25 +35,31 @@
         <a href="#">Group Manager</a>
         <a href="#">Joined Groups</a>
         <a href="{% url 'messages' %}">Messages</a>
-
     </div>
 
-
+    <!-- Main Content -->
     <div class="feed">
         <h2>My Projects</h2>
 
-    <!--Quick Add-->
+        <!-- Quick Add -->
         <div class="button-container">
             <button class="new-project" id="quickAddBtn">Add Project</button>
         </div>
 
-        <!-- New post box (hidden by default) -->
+        <!-- New Project Form -->
         <div class="new-post-box" id="newPostBox">
-            <textarea placeholder="MyProjects TEST" id="newPostText"></textarea>
-            <button class="submit-post" id="submitPostBtn">Post</button>
+            <form method="post">
+                {% csrf_token %}
+                <textarea
+                    name="content"
+                    placeholder="Describe your project..."
+                    required
+                ></textarea>
+                <button type="submit" class="submit-post">Post</button>
+            </form>
         </div>
 
-        <!-- My Projects -->
+        <!-- Projects List -->
         {% for post in posts %}
             <div class="post">
                 <h3>{{ post.title }}</h3>
@@ -60,8 +68,8 @@
 
                 {% if post.author == request.user %}
                     <div class="post-actions">
-                        <a href="{% url 'post_edit' post.id %}">Edit</a>
-                        <a href="{% url 'post_delete' post.id %}">Delete</a>
+                        <a href="{% url 'post_edit' post.id %}?next={{ request.path }}">Edit</a>
+                        <a href="{% url 'post_delete' post.id %}?next={{ request.path }}">Delete</a>
                     </div>
                 {% endif %}
             </div>
@@ -70,6 +78,7 @@
         {% endfor %}
     </div>
 
+    <!-- Scripts -->
     <script>
         // Profile dropdown
         const profileToggle = document.getElementById("profileToggle");
@@ -86,7 +95,7 @@
             }
         });
 
-        // New post box toggle
+        // Toggle new project form
         const quickAddBtn = document.getElementById("quickAddBtn");
         const newPostBox = document.getElementById("newPostBox");
 
@@ -96,5 +105,4 @@
     </script>
 
 </body>
-
 </html>

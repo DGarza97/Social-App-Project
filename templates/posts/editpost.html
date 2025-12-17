@@ -8,10 +8,11 @@
 
     <form method="post">
         {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
 
-    <a href="{% url 'feed' %}">Cancel</a>
+    <a href="{{ next }}">Cancel</a>
 </body>
 </html>
