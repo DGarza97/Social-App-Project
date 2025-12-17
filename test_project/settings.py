@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'signup',
     'profile',
     'chat',
+    'groups',
 ]
 
 MIDDLEWARE = [
