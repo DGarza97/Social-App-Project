@@ -40,7 +40,7 @@ def post_delete(request, pk):
 
     if request.method == "POST":
         post.delete()
-        return redirect('home')
+        return redirect('feed')
 
     return render(request, 'posts/deletepost.html', {'post': post})
 

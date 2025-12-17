@@ -57,6 +57,13 @@
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.content }}</p>
                 <small>{{ post.created_at }}</small>
+
+                {% if post.author == request.user %}
+                    <div class="post-actions">
+                        <a href="{% url 'post_edit' post.id %}">Edit</a>
+                        <a href="{% url 'post_delete' post.id %}">Delete</a>
+                    </div>
+                {% endif %}
             </div>
         {% empty %}
             <p>You haven’t created any projects yet.</p>
