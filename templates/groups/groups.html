@@ -13,8 +13,9 @@
     <!-- PROFILE -->
     <div class="profile-wrapper">
         <img class="profile-icon"
-            src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=111827&color=ffffff"
-            id="profileToggle">
+             src="https://ui-avatars.com/api/?name={{ request.user.username }}&background=111827&color=ffffff"
+             id="profileToggle">
+
         <div class="profile-dropdown" id="profileDropdown">
             <a href="{% url 'profile' %}">Profile</a>
             <form method="post" action="{% url 'logout' %}">
@@ -60,26 +61,24 @@
                     <span class="members-label">Members:</span>
 
                     {% for member in group.members.all %}
-                    <span class="member">
-                        {{ member.username }}
-                    </span>
+                        <span class="member">{{ member.username }}</span>
                     {% empty %}
-                    <span class="no-members">No members yet</span>
+                        <span class="no-members">No members yet</span>
                     {% endfor %}
                 </div>
 
                 {% if request.user in group.members.all %}
-                <span class="joined">Joined</span>
+                    <span class="joined">Joined</span>
                 {% else %}
-                <form method="post" action="{% url 'join_group' group.id %}">
-                    {% csrf_token %}
-                    <button>Join Group</button>
-                </form>
+                    <form method="post" action="{% url 'join_group' group.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Join Group</button>
+                    </form>
                 {% endif %}
             </div>
 
             {% empty %}
-            <p>No groups available.</p>
+                <p>No groups available.</p>
             {% endfor %}
         </div>
 
@@ -100,5 +99,4 @@
     </script>
 
 </body>
-
 </html>
